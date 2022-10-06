@@ -1,0 +1,29 @@
+Command line:
+   test_splitter_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  3145
+
+Thu Oct 06 13:29:03 2022
+
+
+ Elaboration Time: 0.0625 sec
+
+ Current Memory Usage: 824.762 Meg
+
+ Total Signals          : 22
+ Total Nets             : 77
+ Total Signal Drivers   : 10
+ Total Blocks           : 3
+ Total Primitive Blocks : 2
+ Total Processes        : 12
+ Total Traceable Variables  : 19
+ Total Scalar Nets and Variables : 189
+Total Line Count : 21
+
+ Total Simulation Time: 0.078125 sec
+
+ Current Memory Usage: 824.762 Meg
+
+Thu Oct 06 13:29:10 2022
+
