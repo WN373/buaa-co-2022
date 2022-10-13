@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "D:/MyFileAtD/CO2022/buaa-co-2022/P1/test_expr_isim_beh.exe" -prj "D:/MyFileAtD/CO2022/buaa-co-2022/P1/test_expr_beh.prj" "work.test_expr" "work.glbl" 
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "D:/MyFileAtD/CO2022/buaa-co-2022/P1/test_bc_isim_beh.exe" -prj "D:/MyFileAtD/CO2022/buaa-co-2022/P1/test_bc_beh.prj" "work.test_bc" "work.glbl" 
