@@ -13,18 +13,13 @@ module EXT(
     always @* begin
         case (ext_op) 
             0: begin
-                imm32[15:0] = imm16;
-                imm32[31:16] = 0;
+                imm32 = {16'h0000, imm16};
             end
             1: begin
-                imm32[15:0] = imm16;
-                for (i=16; i<32; i=i+1) begin
-                    imm32[i] = imm16[15];
-                end
+                imm32 = {16{imm16[15]}, imm16};
             end
             2:  begin
-                imm32[31:16] = imm16;
-                imm32[15:0] = 0;
+                imm32 = {imm16, 16'h0000};
             end
             default: imm32 = 0;
         endcase
