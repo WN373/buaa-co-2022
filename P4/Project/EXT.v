@@ -12,14 +12,20 @@ module EXT(
 
     always @* begin
         case (ext_op) 
-            0: imm32[15:0] = imm16;
+            0: begin
+                imm32[15:0] = imm16;
+                imm32[31:16] = 0;
+            end
             1: begin
                 imm32[15:0] = imm16;
                 for (i=16; i<32; i=i+1) begin
                     imm32[i] = imm16[15];
                 end
             end
-            2: imm32[31:16] = imm16;
+            2:  begin
+                imm32[31:16] = imm16;
+                imm32[15:0] = 0;
+            end
             default: imm32 = 0;
         endcase
     end
