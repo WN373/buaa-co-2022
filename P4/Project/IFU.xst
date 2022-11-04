@@ -1,0 +1,5 @@
+set -tmpdir "D:/MyFileAtD/CO2022/buaa-co-2022/P4/Project/xst/projnav.tmp"
+set -xsthdpdir "D:/MyFileAtD/CO2022/buaa-co-2022/P4/Project/xst"
+elaborate
+-ifn IFU.prj
+-ifmt mixed
