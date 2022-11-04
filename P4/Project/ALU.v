@@ -12,7 +12,7 @@ module ALU(
                     (alu_op == 4) ? A2 << A1 : 0;
     
     assign bool_res = (alu_op == 0) ? (A1==A2 ? 1 : 0) :
-                    (alu_op == 1 ? (A1>A2 ? 1 : 0) : 0;
+                    (alu_op == 1) ? (A1>A2 ? 1 : 0) : 0;
     
 
 
