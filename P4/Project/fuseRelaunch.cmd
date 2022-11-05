@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "/home/co-eda/Documents/buaa-co-2022/P4/Project/testRoute_isim_beh.exe" -prj "/home/co-eda/Documents/buaa-co-2022/P4/Project/testRoute_beh.prj" "work.testRoute" "work.glbl" 

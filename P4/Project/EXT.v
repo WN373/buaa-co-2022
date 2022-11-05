@@ -21,6 +21,9 @@ module EXT(
             2:  begin
                 imm32 = {imm16, 16'h0000};
             end
+            3: begin
+                imm32 = {14'h0, imm16, 2'b0}; 
+            end
             default: imm32 = 0;
         endcase
     end

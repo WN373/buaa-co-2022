@@ -1,0 +1,37 @@
+Running: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "/home/co-eda/Documents/buaa-co-2022/P4/Project/testRoute_isim_beh.exe" -prj "/home/co-eda/Documents/buaa-co-2022/P4/Project/testRoute_beh.prj" "work.testRoute" "work.glbl" 
+ISim P.20131013 (signature 0xfbc00daa)
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Determining compilation order of HDL files
+Analyzing Verilog file "/home/co-eda/Documents/buaa-co-2022/P4/Project/IFU.v" into library work
+Analyzing Verilog file "/home/co-eda/Documents/buaa-co-2022/P4/Project/GRF.v" into library work
+Analyzing Verilog file "/home/co-eda/Documents/buaa-co-2022/P4/Project/EXT.v" into library work
+Analyzing Verilog file "/home/co-eda/Documents/buaa-co-2022/P4/Project/DM.v" into library work
+Analyzing Verilog file "/home/co-eda/Documents/buaa-co-2022/P4/Project/Controller.v" into library work
+Analyzing Verilog file "/home/co-eda/Documents/buaa-co-2022/P4/Project/ALU.v" into library work
+Analyzing Verilog file "/home/co-eda/Documents/buaa-co-2022/P4/Project/mips.v" into library work
+Analyzing Verilog file "/home/co-eda/Documents/buaa-co-2022/P4/Project/testRoute.v" into library work
+Analyzing Verilog file "/opt/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+WARNING:HDLCompiler:1330 - "/home/co-eda/Documents/buaa-co-2022/P4/Project/GRF.v" Line 36: Function RESET has no return value assignment
+WARNING:HDLCompiler:1330 - "/home/co-eda/Documents/buaa-co-2022/P4/Project/DM.v" Line 21: Function RESET has no return value assignment
+WARNING:HDLCompiler:189 - "/home/co-eda/Documents/buaa-co-2022/P4/Project/mips.v" Line 114: Size mismatch in connection of port <width>. Formal port size is 2-bit while actual signal size is 3-bit.
+Completed static elaboration
+Fuse Memory Usage: 82712 KB
+Fuse CPU Usage: 760 ms
+Compiling module Controller
+Compiling module EXT
+Compiling module GRF
+Compiling module ALU
+Compiling module DM
+Compiling module IFU
+Compiling module mips
+Compiling module testRoute
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
+Compiled 9 Verilog Units
+Built simulation executable /home/co-eda/Documents/buaa-co-2022/P4/Project/testRoute_isim_beh.exe
+Fuse Memory Usage: 643256 KB
+Fuse CPU Usage: 820 ms
+GCC CPU Usage: 480 ms

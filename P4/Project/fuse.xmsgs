@@ -5,13 +5,13 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="error" file="HDLCompiler" num="1366" delta="unknown" >"D:/MyFileAtD/CO2022/buaa-co-2022/P4/Project/GRF.v" Line 36: Multiple statement function/task without begin/end not supported in this mode of Verilog
+<msg type="warning" file="HDLCompiler" num="1330" delta="unknown" >"/home/co-eda/Documents/buaa-co-2022/P4/Project/GRF.v" Line 36: Function <arg fmt="%s" index="1">RESET</arg> has no return value assignment
 </msg>
 
-<msg type="error" file="HDLCompiler" num="182" delta="unknown" >"D:/MyFileAtD/CO2022/buaa-co-2022/P4/Project/GRF.v" Line 36: A function must have at least one input
+<msg type="warning" file="HDLCompiler" num="1330" delta="unknown" >"/home/co-eda/Documents/buaa-co-2022/P4/Project/DM.v" Line 21: Function <arg fmt="%s" index="1">RESET</arg> has no return value assignment
 </msg>
 
-<msg type="error" file="HDLCompiler" num="598" delta="unknown" >"D:/MyFileAtD/CO2022/buaa-co-2022/P4/Project/GRF.v" Line 21: Module &lt;<arg fmt="%s" index="1">GRF</arg>&gt; ignored due to previous errors.
+<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"/home/co-eda/Documents/buaa-co-2022/P4/Project/mips.v" Line 114: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">width</arg>&gt;. Formal port size is <arg fmt="%d" index="2">2</arg>-bit while actual signal size is <arg fmt="%d" index="1">3</arg>-bit.
 </msg>
 
 </messages>

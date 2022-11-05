@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/co-eda/Documents/buaa-co-2022/P4/Project/testRoute_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="testRoute" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="45" />
+   <wvobject fp_name="/testRoute/uut/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/reset" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/instr" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">instr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">instr[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/optCode" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">optCode[5:0]</obj_property>
+      <obj_property name="ObjectShortName">optCode[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/rs" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rs[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rs[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/rt" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rt[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rt[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/rd" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rd[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rd[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/shamt" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">shamt[4:0]</obj_property>
+      <obj_property name="ObjectShortName">shamt[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/funcCode" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">funcCode[5:0]</obj_property>
+      <obj_property name="ObjectShortName">funcCode[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/imm16" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">imm16[15:0]</obj_property>
+      <obj_property name="ObjectShortName">imm16[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/instr_index" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">instr_index[25:0]</obj_property>
+      <obj_property name="ObjectShortName">instr_index[25:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/PCa4" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">PCa4[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PCa4[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/PC" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">PC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/alu_op" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">alu_op[3:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_op[3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/ext_op" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ext_op[2:0]</obj_property>
+      <obj_property name="ObjectShortName">ext_op[2:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/nPC_sel" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">nPC_sel[2:0]</obj_property>
+      <obj_property name="ObjectShortName">nPC_sel[2:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/alu_src" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">alu_src[2:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_src[2:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/regw_dst" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">regw_dst[2:0]</obj_property>
+      <obj_property name="ObjectShortName">regw_dst[2:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/regw_src" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">regw_src[2:0]</obj_property>
+      <obj_property name="ObjectShortName">regw_src[2:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/width" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">width[2:0]</obj_property>
+      <obj_property name="ObjectShortName">width[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/reg_write_enable" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reg_write_enable</obj_property>
+      <obj_property name="ObjectShortName">reg_write_enable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/mem_write_enable" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">mem_write_enable</obj_property>
+      <obj_property name="ObjectShortName">mem_write_enable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/cmp" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">cmp</obj_property>
+      <obj_property name="ObjectShortName">cmp</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/grf_adr_1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">grf_adr_1[4:0]</obj_property>
+      <obj_property name="ObjectShortName">grf_adr_1[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/grf_adr_2" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">grf_adr_2[4:0]</obj_property>
+      <obj_property name="ObjectShortName">grf_adr_2[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/grf_adr_3" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">grf_adr_3[4:0]</obj_property>
+      <obj_property name="ObjectShortName">grf_adr_3[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/grf_write" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">grf_write[31:0]</obj_property>
+      <obj_property name="ObjectShortName">grf_write[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/grf_read1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">grf_read1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">grf_read1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/grf_read2" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">grf_read2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">grf_read2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/A1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">A1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">A1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/A2" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">A2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">A2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/alu_res" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">alu_res[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_res[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/mem_read" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">mem_read[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_read[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/imm32" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">imm32[31:0]</obj_property>
+      <obj_property name="ObjectShortName">imm32[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/uCtrl/special" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">special</obj_property>
+      <obj_property name="ObjectShortName">special</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/uCtrl/add" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">add</obj_property>
+      <obj_property name="ObjectShortName">add</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/uCtrl/sub" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">sub</obj_property>
+      <obj_property name="ObjectShortName">sub</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/uCtrl/ori" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ori</obj_property>
+      <obj_property name="ObjectShortName">ori</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/uCtrl/lw" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">lw</obj_property>
+      <obj_property name="ObjectShortName">lw</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/uCtrl/sw" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">sw</obj_property>
+      <obj_property name="ObjectShortName">sw</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/uCtrl/beq" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">beq</obj_property>
+      <obj_property name="ObjectShortName">beq</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/uCtrl/lui" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">lui</obj_property>
+      <obj_property name="ObjectShortName">lui</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/uCtrl/jal" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">jal</obj_property>
+      <obj_property name="ObjectShortName">jal</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/uCtrl/jr" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">jr</obj_property>
+      <obj_property name="ObjectShortName">jr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testRoute/uut/uCtrl/sll" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">sll</obj_property>
+      <obj_property name="ObjectShortName">sll</obj_property>
+   </wvobject>
+</wave_config>
