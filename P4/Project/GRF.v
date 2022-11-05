@@ -55,7 +55,7 @@ module GRF(
         if (reset) begin
             RESET(reset);
         end 
-        else if (reg_write_enable) begin 
+        else if (reg_write_enable) begin
             $display("@%h: $%d <= %h", PC, grf_adr_3, grf_write);
             if (grf_adr_3 != 0) begin
                 grf_reg[grf_adr_3] <= grf_write;

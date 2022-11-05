@@ -51,6 +51,7 @@
    <wvobject fp_name="/testRoute/uut/imm16" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">imm16[15:0]</obj_property>
       <obj_property name="ObjectShortName">imm16[15:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/testRoute/uut/instr_index" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">instr_index[25:0]</obj_property>
@@ -59,10 +60,12 @@
    <wvobject fp_name="/testRoute/uut/PCa4" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">PCa4[31:0]</obj_property>
       <obj_property name="ObjectShortName">PCa4[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/testRoute/uut/PC" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">PC[31:0]</obj_property>
       <obj_property name="ObjectShortName">PC[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/testRoute/uut/alu_op" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">alu_op[3:0]</obj_property>
@@ -125,35 +128,42 @@
    <wvobject fp_name="/testRoute/uut/grf_write" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">grf_write[31:0]</obj_property>
       <obj_property name="ObjectShortName">grf_write[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/testRoute/uut/grf_read1" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">grf_read1[31:0]</obj_property>
       <obj_property name="ObjectShortName">grf_read1[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/testRoute/uut/grf_read2" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">grf_read2[31:0]</obj_property>
       <obj_property name="ObjectShortName">grf_read2[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/testRoute/uut/A1" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">A1[31:0]</obj_property>
       <obj_property name="ObjectShortName">A1[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/testRoute/uut/A2" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">A2[31:0]</obj_property>
       <obj_property name="ObjectShortName">A2[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/testRoute/uut/alu_res" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">alu_res[31:0]</obj_property>
       <obj_property name="ObjectShortName">alu_res[31:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/testRoute/uut/mem_read" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">mem_read[31:0]</obj_property>
       <obj_property name="ObjectShortName">mem_read[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/testRoute/uut/imm32" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">imm32[31:0]</obj_property>
       <obj_property name="ObjectShortName">imm32[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/testRoute/uut/uCtrl/special" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">special</obj_property>

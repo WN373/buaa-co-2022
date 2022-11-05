@@ -15,10 +15,10 @@ Analyzing Verilog file "/opt/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into li
 Starting static elaboration
 WARNING:HDLCompiler:1330 - "/home/co-eda/Documents/buaa-co-2022/P4/Project/GRF.v" Line 36: Function RESET has no return value assignment
 WARNING:HDLCompiler:1330 - "/home/co-eda/Documents/buaa-co-2022/P4/Project/DM.v" Line 21: Function RESET has no return value assignment
-WARNING:HDLCompiler:189 - "/home/co-eda/Documents/buaa-co-2022/P4/Project/mips.v" Line 114: Size mismatch in connection of port <width>. Formal port size is 2-bit while actual signal size is 3-bit.
+WARNING:HDLCompiler:189 - "/home/co-eda/Documents/buaa-co-2022/P4/Project/mips.v" Line 116: Size mismatch in connection of port <width>. Formal port size is 2-bit while actual signal size is 3-bit.
 Completed static elaboration
 Fuse Memory Usage: 82712 KB
-Fuse CPU Usage: 760 ms
+Fuse CPU Usage: 510 ms
 Compiling module Controller
 Compiling module EXT
 Compiling module GRF
@@ -33,5 +33,5 @@ Waiting for 1 sub-compilation(s) to finish...
 Compiled 9 Verilog Units
 Built simulation executable /home/co-eda/Documents/buaa-co-2022/P4/Project/testRoute_isim_beh.exe
 Fuse Memory Usage: 643256 KB
-Fuse CPU Usage: 820 ms
-GCC CPU Usage: 480 ms
+Fuse CPU Usage: 530 ms
+GCC CPU Usage: 320 ms

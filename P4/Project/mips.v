@@ -42,6 +42,8 @@ module mips(
                 regw_dst, regw_src, width;
     wire reg_write_enable, mem_write_enable, cmp;
 
+    wire nop = (instr == 0) ? 1 : 0;
+
     Controller uCtrl(
         // input
         .optCode(optCode),
@@ -70,7 +72,7 @@ module mips(
     wire [4:0] grf_adr_1 = rs;
     wire [4:0] grf_adr_2 = rt;
     wire [4:0] grf_adr_3 = (regw_dst == 0) ? rt : 
-                            (regw_dst == 1) ? rd : 5'd31 ;
+                            (regw_dst == 1) ? rd : 5'h1f ;
     wire [31:0] grf_write = (regw_src == 0) ? alu_res : 
                             (regw_src == 1) ? mem_read :
                             (regw_src == 2) ? imm32 :
@@ -82,7 +84,7 @@ module mips(
         .clk(clk),
         .reset(reset),
         .PC(PC),
-        .reg_write_enable(reg_write_enable),
+        .reg_write_enable(reg_write_enable ^ nop),
         .grf_adr_1(grf_adr_1),
         .grf_adr_2(grf_adr_2),
         .grf_adr_3(grf_adr_3),

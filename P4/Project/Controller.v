@@ -51,7 +51,7 @@ module Controller(
     010 : imm32 (load i)
     011 : PC+4 (jal)
     */
-    assign reg_write_enable = (sw || add || sub || ori ||
+    assign reg_write_enable = (lw || add || sub || ori ||
                              lui || sll || jal) ? 1 : 0;
     assign mem_write_enable = (sw) ? 1 : 0;
 
