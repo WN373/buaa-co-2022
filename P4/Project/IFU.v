@@ -27,7 +27,7 @@ module IFU(
                 0: PC <= PCa4;              // PC = PC + 4
                 1: begin
                     if (cmp) begin
-                        PC <= PCa4 + imm32;      // PC = PC + 4 + offset
+                        PC <= PCa4 + (imm32 << 2);      // PC = PC + 4 + offset
                     end
                     else begin
                         PC <= PCa4;
