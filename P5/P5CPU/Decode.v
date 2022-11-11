@@ -21,7 +21,7 @@ module Decode(
     wire [2:0] nPC_sel, brc_op, ext_op;
     wire bool_res, branch;
 
-    assign PCw_enable = bool_res && branch;
+    assign PCw_enable = bool_res && branch; 
 
     CU ucud (
         .instr(D_ins),
@@ -38,7 +38,7 @@ module Decode(
         .imm16(imm16),
         // output
         .imm32(imm32)
-    )
+    );
 
     NPC unpcd (
         //inp

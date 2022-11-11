@@ -5,56 +5,66 @@ module mips (
     input reset
 );
     // Fetch Phase
-
     wire [31:0] F_ins, F_PC;
-    wire [2:0] nPC_sel;
 
-    
+    Fetch uftc(
+        // input
+        .clk(clk), .reset(reset),
+        .pause(0),
+        .branch(D_branch),
+        .DnPC(DnPC),
+        // output
+        .F_ins(F_ins),
+        .F_PC(F_PC)
+    ); 
 
-
-    // IF/ID
+    // =========== F2D register ==========
     IF2ID uf2d(
         // input
-        .reset(reset),
-        .clk(clk),
-
+        .reset(reset), .clk(clk), .pause(D_branch),
+        .F_ins(F_ins),
+        .F_PC(F_PC),
         // output
-
+        .D_ins(D_ins),
+        .D_PC(D_PC)
     );
+    // =========== F2D end ==========
 
     // Decode Phase
+    wire [31:0] DnPC, D_ins, D_PC, D_reg_rs, D_reg_rt;
+    wire D_branch;
 
-    // ------------- SPL bgn ---------------
-    wire [31:0] Dinstr, imm32;
-    wire [5:0] opt = Dinstr[_opt]
-            , func = Dinstr[_funct];
-    wire [4:0] rs = Dinstr[_rs]
-            , rt = Dinstr[_rt]
-            , rd = Dinstr[_rd]
-            , shamt = Dinstr[_shamt];
-    wire [15:0] imm16 = Dinstr[_imm16];
-    wire [25:0] imm26 = Dinstr[_imm26];
-    // ------------- SPL end ---------------
-
-    EXT uext(
+    Decode udec(
         // input
-        .sign_sel(sign_sel),
-        .imm16(imm16),
+        .clk(clk), .reset(reset),
+        .D_ins(D_ins),
+        .D_PC(D_PC),
+        .reg_read1(reg_read1),
+        .reg_read2(reg_read2),
         // output
-        .imm32(imm32)
-    );
+        .PCw_enable(D_branch),
+        .DnPC(DnPC),
+        .reg_rs(D_reg_rs),
+        .reg_rt(D_reg_rt)
+    ); 
+
+    // GRF
+    wire [31:0] reg_read1, reg_read2;
+    wire [4:0] reg_adr1, reg_adr2, reg_adr3;
 
     GRF ugrf(
         // input 
         .reset(reset),
         .clk(clk),
-        .reg_we(  ),
-        .reg_adr1(rs),
-        .reg_adr2(rt),
-        .reg_adr3(  ),
-        .reg_wd(  ),
-        .WPC(D)
-
+        .reg_we(),
+        .reg_adr1(),
+        .reg_adr2(),
+        .reg_adr3(),
+        .reg_wd(),
+        .WPC(W_PC)
+        // output
+        .reg_rd1(reg_read1),
+        .reg_rd2(reg_read2)
     );
 
 

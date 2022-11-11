@@ -4,7 +4,7 @@ module CMP(
     output bool_res
 );
 
-    assign bool_res = (brc_op == 0) ? (A1==A2) : 0;
+    assign bool_res = (brc_op == 0) ? (A1==A2) : 1;
 
 
 endmodule

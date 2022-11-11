@@ -7,14 +7,14 @@ module CU(
     output branch,
 
     // Execute
-    output [2:0] alu_op, alu_src,
+    output [2:0] alu_op, alu_src0, alu_src,
 
     // Memory
     output memw_enable,
-    output [2:0] 
 
     // Writeback
-    output regw_enable
+    output regw_enable,
+    output [3:0] regw_src, regw_dst
 
 );
 
@@ -38,6 +38,7 @@ module CU(
     wire jal = (opt == JAL) ? 1 : 0;
     wire jr = (opt == JR) ? 1 : 0;
 
+    // Decode
     assign nPC_sel = {1'b0, (jr || jal || j) , (j || jal || beq)};
     /*
     0: pc+4
@@ -45,13 +46,49 @@ module CU(
     2: jr           
     3: j, jal
     */
-    assign brc_op = 0;
+    assign brc_op = {3'b0, j||jal||jr};
     /*
     0: =
+    1: true
     */
     assign ext_op = {1'b0, lui, (lw || sw || beq)};
     /*0: unsigned; 1:signed; 2:tohigh */
     assign branch = (j||jal||jr||beq);
+
+    // Execute
+    assign alu_op = {1'b0, sll || ori ,sub || sll};
+    /*
+    0: +
+    1: -
+    2: |
+    3: <<
+    */
+    assign alu_src0 = {2'b0, sll};
+    assign alu_src = {2'b0, ori || lw || sw};
+    /*
+    0 : rt
+    1 : imm32
+    */
+    
+    // Memory
+    assign memw_enable = sw;
+
+    // Writeback
+    assign regw_enable = lw || ori || add || sub || sll || jal;
+    assign regw_src = {2'b0, lui || jal, lw || jal};
+    /*
+    0 : alures
+    1 : memread
+    2 : imm32(tohi)
+    3 : PC+4
+    */
+    assign regw_dst = {2'b0, jal, (add || sll || sub) };
+    /*
+    0 : rt;
+    1 : rd;
+    2 : 31
+    */ 
+
 
 
 endmodule
