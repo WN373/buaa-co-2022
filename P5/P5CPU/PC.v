@@ -1,5 +1,3 @@
-`include "macros.v"
-
 `define PC_initial 32'h3000
 module PC(
     input [31:0] npc,

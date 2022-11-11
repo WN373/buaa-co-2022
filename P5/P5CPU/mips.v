@@ -21,18 +21,21 @@ module mips (
     // =========== F2D register ==========
     IF2ID uf2d(
         // input
-        .reset(reset), .clk(clk), .pause(D_branch),
+        .reset(reset), .clk(clk), .pause(0),
         .F_ins(F_ins),
         .F_PC(F_PC),
+        .F_lat(D_branch),
         // output
         .D_ins(D_ins),
-        .D_PC(D_PC)
+        .D_PC(D_PC),
+        .D_lat(D_lat)
     );
     // =========== F2D end ==========
 
     // Decode Phase
-    wire [31:0] DnPC, D_ins, D_PC, D_reg_rs, D_reg_rt;
-    wire D_branch;
+    wire [31:0] DnPC, D_ins, D_PC, D_reg_rs, D_reg_rt, D_imm32;
+    wire [4:0] D_reg_adr1, D_reg_adr2;
+    wire D_branch, D_lat;
 
     Decode udec(
         // input
@@ -45,34 +48,161 @@ module mips (
         .PCw_enable(D_branch),
         .DnPC(DnPC),
         .reg_rs(D_reg_rs),
-        .reg_rt(D_reg_rt)
+        .reg_rt(D_reg_rt),
+        .reg_adr1(D_reg_adr1),
+        .reg_adr2(D_reg_adr2),
+        .imm32(D_imm32)
     ); 
 
     // GRF
     wire [31:0] reg_read1, reg_read2;
-    wire [4:0] reg_adr1, reg_adr2, reg_adr3;
+    wire [4:0] reg_adr1 = D_reg_adr1, 
+                reg_adr2 = D_reg_adr2, 
+                reg_adr3;
 
     GRF ugrf(
         // input 
         .reset(reset),
         .clk(clk),
-        .reg_we(),
-        .reg_adr1(),
-        .reg_adr2(),
-        .reg_adr3(),
-        .reg_wd(),
+        .reg_we(W_regw_enable&&(!W_lat)),
+        .reg_adr1(reg_adr1),
+        .reg_adr2(reg_adr2),
+        .reg_adr3(reg_adr3),
+        .reg_wd(W_reg_write),
         .WPC(W_PC)
         // output
         .reg_rd1(reg_read1),
         .reg_rd2(reg_read2)
     );
 
+    // ========== D2EX ==========
+    ID2EX ud2ex(
+        // input
+        .clk(clk), .reset(reset),
+        .pause(0),
+        .Dimm32(D_imm32),
+        .Dreg_rs(D_reg_rs),
+        .Dreg_rt(D_reg_rt),
+        .D_PC(D_PC),
+        .D_ins(D_ins),
+        .D_lat(D_lat),
+        // output
+        .Eimm32(E_imm32),
+        .Ereg_rs(E_reg_rs),
+        .Ereg_rt(E_reg_rt),
+        .E_ins(E_ins),
+        .E_PC(E_PC),
+        .E_lat(E_lat)
+    );
+    // ========== end ==========
 
+    // Execute
+    wire [31:0] E_imm32, E_reg_rs, E_reg_rt, E_PC, E_ins;
+    wire E_lat;
+    wire [31:0] E_alu_res;
 
+    Execute uexe(
+        .imm32(E_imm32),
+        .reg_rs(E_reg_rs),
+        .reg_rt(E_reg_rt),
+        .E_PC(E_PC),
+        .E_ins(E_ins),
+        // output
+        .alu_res(E_alu_res)
+    );
 
+    // EX2MEM
 
+    EX2MEM ue2m(
+        .Eimm32(E_imm32),
+        .Ereg_rs(E_reg_rs),
+        .Ereg_rt(E_reg_rt),
+        .E_ins(E_ins),
+        .E_PC(E_PC),
+        .E_lat(E_lat),
+        .E_alu_res(E_alu_res),
+        // output
+        .M_ins(M_ins),
+        .M_PC(M_PC),
+        .M_alu_res(M_alu_res),
+        .M_reg_rs(M_reg_rs),
+        .M_reg_rt(M_reg_rt),
+        .M_lat(M_lat)
+    );
 
+    // Memory
+    wire [31:0] M_ins, M_PC, M_alu_res, M_reg_rs, M_reg_rt;
+    wire M_lat;
+    wire [31:0] M_mem_read;
 
+    Memory umem(
+        .M_ins(M_ins),
+        .M_PC(M_PC),
+        .alu_res(M_alu_res),
+        .reg_rs(M_reg_rs),
+        .reg_rt(M_reg_rt),
+        // output
+        .mem_adr(mem_adr),
+        .mem_write(mem_write),
+        .memw_enable(memw_enable)
+    );
+
+    // DM
+    wire memw_enable;
+    wire [31:0] mem_adr, mem_write;
+
+    DM udm(
+        .clk(clk), .reset(reset),
+        .pause(0),
+        .memw_enable(memw_enable),
+        .width(0),
+        .mem_adr(mem_adr),
+        .mem_write(mem_write),
+        .MPC(M_PC),
+        // output
+        .mem_read(M_mem_read)
+    );
+
+    // =========== MEM2WB ===========
+    MEM2WB um2w(
+        .clk(clk), .reset(reset),
+        .pause(0),
+        .M_ins(M_ins),
+        .M_PC(M_PC),
+        .M_alu_res(M_alu_res),
+        .M_reg_rs(M_reg_rs),
+        .M_reg_rt(M_reg_rt),
+        .M_lat(M_lat),
+        // output
+        .W_ins(W_ins),
+        .W_PC(W_PC),
+        .W_alu_res(W_alu_res),
+        .W_reg_rs(W_reg_rs),
+        .W_reg_rt(W_reg_rt),
+        .W_mem_read(W_mem_read),
+        .W_lat(W_lat)
+    );
+    // =========== end ===========
+
+    // Writeback
+    wire [31:0] W_ins, W_PC, W_alu_res, W_reg_rs, W_reg_rt, W_mem_read, W_reg_write;
+    wire W_regw_enable, W_lat;
+    wire [4:0] W_reg_adr;
+
+    Writeback uwb(
+        .clk(clk), .reset(reset),
+        .pause(0),
+        .W_ins(W_ins),
+        .W_PC(W_PC),
+        .alu_res(W_alu_res),
+        .reg_rs(W_reg_rs),
+        .reg_rt(W_reg_rt),
+        .mem_read(W_mem_read),
+        // output
+        .reg_write(W_reg_write),
+        .regw_adr(reg_adr3),
+        .regw_enable(W_regw_enable)
+    );
 
     
 endmodule

@@ -33,7 +33,7 @@ module DM(
         if (reset) begin
             RESET(reset);
         end 
-        else if (mem_write_enable) begin
+        else if (memw_enable && MPC != 0) begin
             $display("@%h: *%h <= %h", MPC, mem_adr, mem_write);
             mem_reg[word_addr] <= mem_write;
         end

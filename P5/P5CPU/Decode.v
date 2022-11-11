@@ -6,14 +6,14 @@ module Decode(
     input [31:0] reg_read1, reg_read2,
     output [4:0] reg_adr1, reg_adr2,
     output PCw_enable,
-    output [31:0] DnPC
+    output [31:0] DnPC, imm32,
     output [31:0] reg_rs, reg_rt
 );
     wire [4:0] rs = D_ins[_rs]
             , rt = D_ins[_rt];
     wire [15:0] imm16 = D_ins[_imm16];
     wire [25:0] imm26 = D_ins[_imm26];
-    wire [31:0] imm32;
+    // wire [31:0] imm32;
 
     assign reg_adr1 = rs;
     assign reg_adr2 = rt;

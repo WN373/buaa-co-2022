@@ -14,7 +14,10 @@ module CU(
 
     // Writeback
     output regw_enable,
-    output [3:0] regw_src, regw_dst
+    output [3:0] regw_src, regw_dst,
+
+    // global
+    output [4:0] T, reg_adr
 
 );
 
@@ -74,7 +77,7 @@ module CU(
     assign memw_enable = sw;
 
     // Writeback
-    assign regw_enable = lw || ori || add || sub || sll || jal;
+    assign regw_enable = lw || ori || add || sub || sll || jal || lui;
     assign regw_src = {2'b0, lui || jal, lw || jal};
     /*
     0 : alures
