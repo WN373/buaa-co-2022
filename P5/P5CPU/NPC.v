@@ -5,7 +5,7 @@ module NPC(
     */
     input [31:0] pc,
     input [31:0] imm32, reg_ra,
-    input [26:0] imm26,
+    input [25:0] imm26,
     output reg [31:0] npc
 );
     always @* begin

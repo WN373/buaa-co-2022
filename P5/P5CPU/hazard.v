@@ -2,37 +2,52 @@
 
 module hazard(
     input [31:0] D_ins, E_ins, M_ins,
-    input [31:0] D_rs_o, D_rt_o, E_rs_o, E_rt_o ,
-    input [4:0] E_ad, M_ad, W_ad,
+    input [31:0] D_rs_o, D_rt_o, E_rs_o, E_rt_o , M_rt_o,
+    input [4:0] E_ad, M_ad, W_ad, ET,
     input [31:0] E_wd, M_wd, W_wd,
     
-    output reg [31:0] D_rs_m, D_rt_m, E_rs_m, E_rt_m,
-    output reg D_pause, D2E_pause, E_pause, E2M_pause
+    output [31:0] D_rs_m, D_rt_m, E_rs_m, E_rt_m, M_rt_m,
+    output Pause_before_E // clear D2E, pause F2D, Fetch
 );
 
-    initial begin
-        D_rs_m = 0;
-        D_rt_m= 0;
-        E_rs_m = 0;
-        E_rt_m = 0;
-        D_pause = 0;
-        D2E_pause = 0;
-        E_pause = 0;
-        E2M_pause = 0;
-    end
+    // initial begin
+    //     D_rs_m = 0;
+    //     D_rt_m= 0;
+    //     E_rs_m = 0;
+    //     E_rt_m = 0;
+    //     D_pause = 0;
+    //     D2E_pause = 0;
+    //     E_pause = 0;
+    //     E2M_pause = 0;
+    // end
 
-    wire [4:0] D_rs = D_ins[_rs],
-               D_rt = D_ins[_rt],
-               E_rs = E_ins[_rs],
-               E_rt = E_ins[_rt];
+    wire [4:0] D_rs = D_ins[`_rs],
+               D_rt = D_ins[`_rt],
+               E_rs = E_ins[`_rs],
+               E_rt = E_ins[`_rt],
+               M_rt = M_ins[`_rt];
 
-
-    always @* begin
-        if (E_ors == M_ad) begin
-            
-        end
-    end
-
-
+    assign M_rt_m = (M_rt == 0) ? 0:
+                    (M_rt == W_ad) ? W_wd:
+                    M_rt_o;
+    assign E_rs_m = (E_rs == 0) ? 0:
+                    (E_rs == M_ad) ? M_wd:
+                    (E_rs == W_ad) ? W_wd:
+                    E_rs_o;
+    assign E_rt_m = (E_rt == 0) ? 0:
+                    (E_rt == M_ad) ? M_wd:
+                    (E_rt == W_ad) ? W_wd:
+                    E_rt_o;
+    assign D_rs_m = (D_rs == 0) ? 0:
+                    (D_rs == E_ad) ? E_wd:
+                    (D_rs == M_ad) ? M_wd:
+                    (D_rs == W_ad) ? W_wd:
+                    D_rs_o;
+    assign D_rt_m = (D_rt == 0) ? 0:
+                    (D_rt == E_ad) ? E_wd:
+                    (D_rt == M_ad) ? M_wd:
+                    (D_rt == W_ad) ? W_wd:
+                    D_rt_o;
+    assign Pause_before_E = ((D_rt == E_ad || D_rs == E_ad) && E_ad != 0 && ET > 1)? 1 : 0;
 
 endmodule

@@ -1,9 +1,9 @@
 module IF2ID(
-    input reset, clk, pause
+    input reset, clk, pause,
     input [31:0] F_ins, F_PC, 
     input F_lat,
     output reg[31:0] D_ins, D_PC,
-    output D_lat
+    output reg D_lat
 );
     
     initial begin

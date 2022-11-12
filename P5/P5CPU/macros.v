@@ -23,9 +23,9 @@
 
 
 `define ADD     6'b100000
-
+`define ADDU    6'b100001
 `define SUB		6'b100010
-
+`define SUBU    6'b100011
 `define SLL     6'b000000
 
 //      I-type
@@ -53,5 +53,6 @@
 `define JAL     6'b000011
 
 //  jr
+// func code
 
 `define JR      6'b001000

@@ -22,8 +22,9 @@ module GRF(
         RESET(1);
     end
 
-    assign reg_rd1 = (reg_adr1 == reg_adr3 && reg_adr1 != 0) ? reg_wd : reg_mem[reg_adr1];
-    assign reg_rd2 = (reg_adr2 == reg_adr3 && reg_adr2 != 0) ? reg_wd : reg_mem[reg_adr2];
+    assign reg_rd1 = (reg_adr1 == reg_adr3 && reg_adr1 != 0 && reg_we) ? reg_wd : reg_mem[reg_adr1];
+    assign reg_rd2 = (reg_adr2 == reg_adr3 && reg_adr2 != 0 && reg_we) ? reg_wd : reg_mem[reg_adr2];
+    
 
     always @(posedge clk) begin
         if (reset) begin
@@ -31,7 +32,7 @@ module GRF(
         end
         else if (reg_we) begin
             if(reg_adr3 != 0 && !pause) begin
-                $display("%d@%h: $%d <= %h", $time, WPC, reg_adr3, reg_wd);
+                $display("@%h: $%d <= %h",  WPC, reg_adr3, reg_wd);
                 reg_mem[reg_adr3] <= reg_wd;
             end
         end

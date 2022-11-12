@@ -5,12 +5,12 @@ module PC(
     output reg [31:0] pc
 );
     initial begin
-        pc = PC_initial;
+        pc = `PC_initial;
     end
 
     always @(posedge clk) begin
         if (reset) begin
-            pc <= PC_initial;
+            pc <= `PC_initial;
         end
         else if(!pause) begin
             pc <= npc;

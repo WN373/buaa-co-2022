@@ -1,5 +1,5 @@
 module EXT(
-    input ext_op,
+    input [2:0] ext_op,
     input [15:0] imm16,
     output [31:0] imm32
 );

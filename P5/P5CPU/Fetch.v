@@ -9,7 +9,7 @@ module Fetch(
 
     PC upc(
         // input
-        .pc(nPC),
+        .npc(nPC),
         .reset(reset),
         .clk(clk),
         .pause(pause),

@@ -3,7 +3,7 @@ module ID2EX(
     input [31:0] Dimm32, Dreg_rs, Dreg_rt, D_PC, D_ins, 
     input D_lat,
     output reg [31:0] Eimm32, Ereg_rs, Ereg_rt, E_PC, E_ins, 
-    output E_lat
+    output reg E_lat
 );
     initial begin
         Eimm32 = 0;

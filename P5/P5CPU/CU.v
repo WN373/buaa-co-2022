@@ -21,25 +21,25 @@ module CU(
 
 );
 
-    wire [5:0] opt = instr[_opt]
-            , func = instr[_funct];
+    wire [5:0] opt = instr[`_opt]
+            , func = instr[`_funct];
 
     wire R = (opt == 0) ? 1 : 0;
-    wire add = (R && func == ADD) ? 1 : 0;
-    wire sub = (R && func == SUB) ? 1 : 0;
-    wire sll = (R && func == SLL) ? 1 : 0;
+    wire add = (R && (func == `ADD || func == `ADDU)) ? 1 : 0;
+    wire sub = (R && (func == `SUB || func == `SUBU)) ? 1 : 0;
+    wire sll = (R && func == `SLL) ? 1 : 0;
 
-    wire lui = (opt == LUI) ? 1 : 0;
-    wire ori = (opt == ORI) ? 1 : 0;
+    wire lui = (opt == `LUI) ? 1 : 0;
+    wire ori = (opt == `ORI) ? 1 : 0;
 
-    wire lw = (opt == LW) ? 1 : 0;
-    wire sw = (opt == SW) ? 1 : 0;
+    wire lw = (opt == `LW) ? 1 : 0;
+    wire sw = (opt == `SW) ? 1 : 0;
 
-    wire beq = (opt == BEQ) ? 1 : 0;
+    wire beq = (opt == `BEQ) ? 1 : 0;
     
-    wire j = (opt == J) ? 1 : 0;
-    wire jal = (opt == JAL) ? 1 : 0;
-    wire jr = (opt == JR) ? 1 : 0;
+    wire j = (opt == `J) ? 1 : 0;
+    wire jal = (opt == `JAL) ? 1 : 0;
+    wire jr = (R && func == `JR) ? 1 : 0;
 
     // Decode
     assign nPC_sel = {1'b0, (jr || jal || j) , (j || jal || beq)};
@@ -80,7 +80,7 @@ module CU(
     assign regw_enable = lw || ori || add || sub || sll || jal || lui;
     assign regw_src = {2'b0, lui || jal, lw || jal};
     /*
-    0 : alures
+    0 : alu_res
     1 : memread
     2 : imm32(tohi)
     3 : PC+4
@@ -90,7 +90,16 @@ module CU(
     0 : rt;
     1 : rd;
     2 : 31
-    */ 
+    */
+
+    // global
+    assign T = {3'b0, lw , add || sub || sll || ori};
+    /*
+    0 from D : beq, jal, lui,
+    1 from E : add, sub, sll, ori, 
+    2 from M : lw 
+    other : nowrite
+    */
 
 
 

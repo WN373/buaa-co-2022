@@ -5,7 +5,7 @@ module DM(
     input [2:0] width,
     input [31:0] mem_adr, mem_write, 
     input [31:0] MPC,
-    output [31:0] mem_read, 
+    output [31:0] mem_read
 );
 
     reg [31:0] mem_reg [0:4095];
@@ -33,8 +33,8 @@ module DM(
         if (reset) begin
             RESET(reset);
         end 
-        else if (memw_enable && MPC != 0) begin
-            $display("@%h: *%h <= %h", MPC, mem_adr, mem_write);
+        else if (memw_enable) begin
+            $display("@%h: *%h <= %h",  MPC, mem_adr, mem_write);
             mem_reg[word_addr] <= mem_write;
         end
     end
