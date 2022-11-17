@@ -107,21 +107,22 @@ module CU(
     2 from M : lw 
     other : nowrite
     */
-    assign rsT = { !(lw||sw||R||ori),
+    wire cal_r = R && !jr;
+    assign rsT = { !(lw||sw||cal_r||ori||beq||jr),
         3'b0,
-        lw || sw || R || ori};
+        lw || sw || cal_r || ori};
     /*
     0 : beq, jr
     1 : lw, sw, R, i
     other : 16
     */
-    assign rtT = { !(beq||sw||R) ,
+    assign rtT = { !(beq||sw||cal_r) ,
         2'b0,
         sw,
-        R };
+        cal_r };
     /*
     0 : beq
-    1 : R, 
+    1 : R,
     2 : sw
     other : 16
     */

@@ -33,13 +33,13 @@ module Writeback(
         .T(T)
     );
 
-    assign reg_write =  (!regw_enable) ? 0 :
-                        (regw_src == 0) ? alu_res : 
+    assign reg_write =  (regw_src == 0) ? alu_res : 
                         (regw_src == 1) ? mem_read :
                         (regw_src == 2) ? imm32 :
-                        (regw_src == 3) ? W_PC+4 : 0 ;
+                        (regw_src == 3) ? W_PC+8 : 0 ;
 
-    assign regw_adr =   (regw_dst == 0) ? rt : 
+    assign regw_adr =   (!regw_enable) ? 0 :
+                        (regw_dst == 0) ? rt : 
                         (regw_dst == 1) ? rd :
                         (regw_dst == 2) ? 5'h1f :
                         0;
