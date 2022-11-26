@@ -3,8 +3,9 @@
 module CU(
     input [31:0] instr,
     // Decode
-    output [2:0] nPC_sel, brc_op, ext_op,
+    output [2:0] nPC_sel,  ext_op,
     output branch,
+    output [5:0]brc_op,
 
     // Execute
     output [2:0] alu_src0, alu_src, mlu_out,
@@ -48,12 +49,12 @@ module CU(
     wire lui = (opt == `LUI) ? 1 : 0;
 
     wire cal_i = addi || Andi || ori || Xori || slti || sltiu ;
-        wire addi = opt == `ADDI || opt == `ADDIU;
+        wire addi = (opt == `ADDI || opt == `ADDIU);
         wire Andi = opt == `ANDI ;
         wire ori = (opt == `ORI) ? 1 : 0;
         wire Xori = opt == `XORI;
-        wire slti = R && func == `SLTI;
-        wire sltiu = R && func == `SLTIU;
+        wire slti = opt == `SLTI;
+        wire sltiu = opt == `SLTIU;
 
     wire load = lb || lh || lw;
         wire lb = opt == `LB;
@@ -68,8 +69,8 @@ module CU(
         wire beq = (opt == `BEQ) ? 1 : 0;
         wire bne = opt == `BNE;
         wire blez = opt == `BLEZ;
-        wire bgez = opt == `BGEZ;
-        wire bltz = opt == `BLTZ;
+        wire bgez = (opt == `BGEZ && instr[`_rt] == 5'b1);
+        wire bltz = (opt == `BLTZ && instr[`_rt] == 5'b0);
         wire bgtz = opt == `BGTZ;
     
     wire j_ins = j || jal || jalr || jr;
@@ -103,12 +104,12 @@ module CU(
         2: jr
         3: j, jal
     */
-    assign brc_op = beq ? 1 :
-                    bne ? 2 :
-                    bgez ? 3 :
-                    blez ? 4 :
-                    bgtz ? 5 :
-                    bltz ? 6 :
+    assign brc_op = beq ? 5'd1 :
+                    bne ? 5'd2 :
+                    bgez ? 5'd3 :
+                    blez ? 5'd4 :
+                    bgtz ? 5'd5 :
+                    bltz ? 5'd6 :
                     j_ins ? 0 : 
                     7;
     /*  (brc_op == 0) ? 1 :
@@ -119,7 +120,7 @@ module CU(
         (brc_op == 5) ? ($signed(A1) > 0) :
         (brc_op == 6) ? ($signed(A1) < 0) :
     */
-    assign ext_op = (load || save || b_ins || addi) ? 1 :
+    assign ext_op = (load || save || b_ins || addi || slti || sltiu) ? 1 :
                     (lui) ? 2 :
                     0;
     /*0: unsigned; 1:signed; 2:tohigh */

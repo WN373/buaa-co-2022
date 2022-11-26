@@ -15,7 +15,7 @@ module ALU(
             3 : alu_res <= (A2 << A1[4:0]);
             4 : alu_res <= (A1 & A2);
             5 : alu_res <= ($signed(A1) < $signed(A2)) ? 1 : 0;
-            6 : alu_res <= (A1 < A2) ? 1 : 0;
+            6 : alu_res <= ({1'b0,A1} < {1'b0,A2}) ? 1 : 0;
             7 : alu_res <= (A1 ^ A2);
             8 : alu_res <= ~(A1 | A2);
             9 : alu_res <= (A2 >> A1[4:0]);

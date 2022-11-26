@@ -21,8 +21,9 @@ module Decode(
     assign reg_rs = reg_read1;
     assign reg_rt = reg_read2;
 
-    wire [2:0] nPC_sel, brc_op, ext_op;
+    wire [2:0] nPC_sel, ext_op;
     wire bool_res, branch;
+    wire [5:0] brc_op;
 
     assign PCw_enable = bool_res && branch; 
 

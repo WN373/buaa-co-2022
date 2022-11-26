@@ -3,14 +3,14 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="D:/MyFileAtD/CO2022/buaa-co-2022/P6/P6extends/P6Project/mips_tbo_isim_beh.wdb" id="1" type="auto">
+      <db_ref path="/home/co-eda/Documents/buaa-co-2022/P6/P6extends/P6Project/mips_tbo_isim_beh.wdb" id="1" type="auto">
          <top_modules>
             <top_module name="glbl" />
             <top_module name="mips_tbo" />
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="90" />
+   <WVObjectSize size="102" />
    <wvobject fp_name="/mips_tbo/uut/clk" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -58,10 +58,12 @@
    <wvobject fp_name="/mips_tbo/uut/w_grf_wdata" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">w_grf_wdata[31:0]</obj_property>
       <obj_property name="ObjectShortName">w_grf_wdata[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/mips_tbo/uut/w_inst_addr" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">w_inst_addr[31:0]</obj_property>
       <obj_property name="ObjectShortName">w_inst_addr[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/mips_tbo/uut/F_ins" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">F_ins[31:0]</obj_property>
@@ -144,6 +146,7 @@
    <wvobject fp_name="/mips_tbo/uut/E_imm32" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">E_imm32[31:0]</obj_property>
       <obj_property name="ObjectShortName">E_imm32[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/mips_tbo/uut/E_reg_rs" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">E_reg_rs[31:0]</obj_property>
@@ -306,22 +309,27 @@
    <wvobject fp_name="/mips_tbo/uut/D_rs_m" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">D_rs_m[31:0]</obj_property>
       <obj_property name="ObjectShortName">D_rs_m[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/mips_tbo/uut/D_rt_m" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">D_rt_m[31:0]</obj_property>
       <obj_property name="ObjectShortName">D_rt_m[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/mips_tbo/uut/E_rs_m" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">E_rs_m[31:0]</obj_property>
       <obj_property name="ObjectShortName">E_rs_m[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/mips_tbo/uut/E_rt_m" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">E_rt_m[31:0]</obj_property>
       <obj_property name="ObjectShortName">E_rt_m[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/mips_tbo/uut/M_rt_m" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">M_rt_m[31:0]</obj_property>
       <obj_property name="ObjectShortName">M_rt_m[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/mips_tbo/uut/ET" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">ET[4:0]</obj_property>
@@ -395,5 +403,57 @@
       <obj_property name="ElementShortName">cnt[31:0]</obj_property>
       <obj_property name="ObjectShortName">cnt[31:0]</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_tbo/uut/ugrf/reset" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_tbo/uut/ugrf/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_tbo/uut/ugrf/pause" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">pause</obj_property>
+      <obj_property name="ObjectShortName">pause</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_tbo/uut/ugrf/reg_we" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reg_we</obj_property>
+      <obj_property name="ObjectShortName">reg_we</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_tbo/uut/ugrf/reg_adr1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">reg_adr1[4:0]</obj_property>
+      <obj_property name="ObjectShortName">reg_adr1[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_tbo/uut/ugrf/reg_adr2" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">reg_adr2[4:0]</obj_property>
+      <obj_property name="ObjectShortName">reg_adr2[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_tbo/uut/ugrf/reg_adr3" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">reg_adr3[4:0]</obj_property>
+      <obj_property name="ObjectShortName">reg_adr3[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_tbo/uut/ugrf/reg_wd" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">reg_wd[31:0]</obj_property>
+      <obj_property name="ObjectShortName">reg_wd[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_tbo/uut/ugrf/WPC" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">WPC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">WPC[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_tbo/uut/ugrf/reg_rd1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">reg_rd1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">reg_rd1[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_tbo/uut/ugrf/reg_rd2" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">reg_rd2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">reg_rd2[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_tbo/uut/ugrf/reg_mem" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">reg_mem[0:31,31:0]</obj_property>
+      <obj_property name="ObjectShortName">reg_mem[0:31,31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
 </wave_config>

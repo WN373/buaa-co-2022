@@ -59,31 +59,33 @@ module Memory(
     end
 
     always @* begin
-        if (width == 1) begin
-            byteen = 4'b1111;
-            mem_write = reg_rt;
-        end else if (width == 2) begin
-            if (mem_adr[1:0] == 2'b0) begin
-                byteen = 4'b0011;
+        if (memw_enable) begin
+            if (width == 1) begin
+                byteen = 4'b1111;
                 mem_write = reg_rt;
-            end else if (mem_adr[1:0] == 2'b10) begin
-                byteen = 4'b1100;
-                mem_write = reg_rt << 16;
-            end
-            else byteen = 0;
-        end else if (width == 3) begin
-            if (mem_adr[1:0] == 2'b00) begin
-                byteen = 4'b0001;
-                mem_write = reg_rt;
-            end else if (mem_adr[1:0] == 2'b01) begin
-                byteen = 4'b0010; 
-                mem_write = reg_rt << 8;
-            end else if (mem_adr[1:0] == 2'b10) begin
-                byteen = 4'b0100;
-                mem_write = reg_rt << 16;
-            end else if (mem_adr[1:0] == 2'b11) begin
-                byteen = 4'b1000;
-                mem_write = reg_rt << 24;
+            end else if (width == 2) begin
+                if (mem_adr[1:0] == 2'b0) begin
+                    byteen = 4'b0011;
+                    mem_write = reg_rt;
+                end else if (mem_adr[1:0] == 2'b10) begin
+                    byteen = 4'b1100;
+                    mem_write = reg_rt << 16;
+                end
+                else byteen = 0;
+            end else if (width == 3) begin
+                if (mem_adr[1:0] == 2'b00) begin
+                    byteen = 4'b0001;
+                    mem_write = reg_rt;
+                end else if (mem_adr[1:0] == 2'b01) begin
+                    byteen = 4'b0010; 
+                    mem_write = reg_rt << 8;
+                end else if (mem_adr[1:0] == 2'b10) begin
+                    byteen = 4'b0100;
+                    mem_write = reg_rt << 16;
+                end else if (mem_adr[1:0] == 2'b11) begin
+                    byteen = 4'b1000;
+                    mem_write = reg_rt << 24;
+                end else byteen = 0;
             end else byteen = 0;
         end else byteen = 0;
     end
