@@ -1,0 +1,115 @@
+# Prerequisites
+*.d
+
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Linker output
+*.ilk
+*.map
+*.exp
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Kernel Module Compile Results
+*.mod*
+*.cmd
+.tmp_versions/
+modules.order
+Module.symvers
+Mkfile.old
+dkms.conf
+
+/planAhead*
+/.Xil
+/_ngo
+/_xmsgs
+/Chip
+/iseconfig
+/isim
+/planAhead_run_1
+/planAhead_run_2
+/templates
+/xlnx_auto_0_xdb
+/xst
+*.lso
+*.prj
+*.stx
+*.xst
+*.lso
+*.sdb
+# *.wcfg
+*.exe
+*.didat
+*.c
+*.log
+*.xmsgs
+*.syr
+*.xst
+*.html
+*.xrpt
+*.gise
+*.tcl
+*.wdb
+*.bin
+*.bld
+*.cmd_log
+*.debug
+*.bgn
+*.bit
+*.ngd
+*.ngr
+*.ini
+*.xml
+# *.txt
+*.csv
+*.drc
+*.ncd
+*.pad
+*.par
+*.pcf
+*.ptwx
+*.unroutes
+*.ut
+*.xpi
+*.twx
+*.xwbt
+*.mrp
+*.ngm
+*.twr
+# *.zip
+# *.7z
+*.cdc
+*.blc
+*.xdl

@@ -92,8 +92,8 @@
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
+      <status xil_pn:value="OutputRemoved"/>
       <outfile xil_pn:name="fuse.log"/>
-      <outfile xil_pn:name="isim"/>
       <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="testRoute_beh.prj"/>
       <outfile xil_pn:name="testRoute_isim_beh.exe"/>
@@ -102,6 +102,7 @@
     <transform xil_pn:end_ts="1667636540" xil_pn:in_ck="-3483947996802736706" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="7012658212135122124" xil_pn:start_ts="1667636540">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="isim.cmd"/>
       <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="testRoute_isim_beh.wdb"/>
