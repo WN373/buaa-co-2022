@@ -1,0 +1,1 @@
+{"name":"Local: try","url":"c:\\Users\\wwr\\Desktop\\tryc\\try.c","tests":[{"id":1668435763592,"input":"7 2 1\n7 2\n6","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\wwr\\Desktop\\tryc\\try.c","group":"local","local":true}

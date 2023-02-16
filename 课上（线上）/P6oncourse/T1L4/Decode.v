@@ -1,7 +1,7 @@
 `include "macros.v"
 
 module Decode(
-    input clk, reset,
+    input clk, reset, 
     input [31:0] D_ins, D_PC,
     input [31:0] reg_read1, reg_read2,
     output [4:0] reg_adr1, reg_adr2,
@@ -10,8 +10,9 @@ module Decode(
     output [31:0] reg_rs, reg_rt,
     output mlu_use
 );
+    wire jap;
     wire [4:0] rs = D_ins[`_rs]
-            , rt = D_ins[`_rt];
+            , rt = jap ? 5'd29 : D_ins[`_rt];
     wire [15:0] imm16 = D_ins[`_imm16];
     wire [25:0] imm26 = D_ins[`_imm26];
     // wire [31:0] imm32;
@@ -34,7 +35,8 @@ module Decode(
         .brc_op(brc_op),
         .ext_op(ext_op),
         .branch(branch),
-        .mlu_use(mlu_use)
+        .mlu_use(mlu_use),
+        .jap(jap)
     );
 
     EXT uext (

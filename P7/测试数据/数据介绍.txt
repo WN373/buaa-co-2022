@@ -1,0 +1,6 @@
+数据：
+bd1 bd2：测试bd
+eretandint：eret紧跟中断
+intbeforemul：muldiv前一条指令中断
+intinbubble：暂停的nop里中断
+muleret：eret前muldiv

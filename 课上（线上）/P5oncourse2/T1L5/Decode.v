@@ -1,14 +1,13 @@
 `include "macros.v"
 
 module Decode(
-    input clk, reset,
+    input clk, reset, 
     input [31:0] D_ins, D_PC,
     input [31:0] reg_read1, reg_read2,
     output [4:0] reg_adr1, reg_adr2,
-    output PCw_enable, 
+    output PCw_enable,
     output [31:0] DnPC, imm32,
-    output [31:0] reg_rs, reg_rt,
-    output mlu_use
+    output [31:0] reg_rs, reg_rt
 );
     wire [4:0] rs = D_ins[`_rs]
             , rt = D_ins[`_rt];
@@ -21,9 +20,8 @@ module Decode(
     assign reg_rs = reg_read1;
     assign reg_rt = reg_read2;
 
-    wire [2:0] nPC_sel, ext_op;
+    wire [2:0] nPC_sel, brc_op, ext_op;
     wire bool_res, branch;
-    wire [5:0] brc_op;
 
     assign PCw_enable = bool_res && branch; 
 
@@ -33,8 +31,7 @@ module Decode(
         .nPC_sel(nPC_sel),
         .brc_op(brc_op),
         .ext_op(ext_op),
-        .branch(branch),
-        .mlu_use(mlu_use)
+        .branch(branch)
     );
 
     EXT uext (

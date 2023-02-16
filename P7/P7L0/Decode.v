@@ -8,13 +8,16 @@ module Decode(
     output PCw_enable, 
     output [31:0] DnPC, imm32,
     output [31:0] reg_rs, reg_rt,
-    output mlu_use
+    output mlu_use, eret,
+    output [4:0] exc_code
 );
     wire [4:0] rs = D_ins[`_rs]
             , rt = D_ins[`_rt];
     wire [15:0] imm16 = D_ins[`_imm16];
     wire [25:0] imm26 = D_ins[`_imm26];
     // wire [31:0] imm32;
+    wire excRI;
+    assign exc_code = excRI ? 5'd10 : 5'd0; 
 
     assign reg_adr1 = rs;
     assign reg_adr2 = rt;
@@ -34,7 +37,9 @@ module Decode(
         .brc_op(brc_op),
         .ext_op(ext_op),
         .branch(branch),
-        .mlu_use(mlu_use)
+        .mlu_use(mlu_use),
+        .eret(eret),
+        .excRI(excRI)
     );
 
     EXT uext (

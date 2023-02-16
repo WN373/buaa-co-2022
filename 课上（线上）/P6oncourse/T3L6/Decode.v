@@ -1,7 +1,7 @@
 `include "macros.v"
 
 module Decode(
-    input clk, reset,
+    input clk, reset, 
     input [31:0] D_ins, D_PC,
     input [31:0] reg_read1, reg_read2,
     output [4:0] reg_adr1, reg_adr2,

@@ -1,0 +1,42 @@
+ori $gp, $0, 0x0
+ori $sp, $0, 0x0
+ori $at, $0, 0x1010
+lui $v0, 0x8723
+
+label_1: ori $v1, $0, 0x7856
+lui $a0, 0x85ff
+ori $a1, $0, 0x1
+lui $a2, 0xffff
+ori $a3, $0, 0xffff
+
+label_2: add $at, $at, $v0
+add $t1, $at, $v1
+sub $t0, $at, $v0
+sub $0, $a3, $0
+beq $gp, $s1, label_1
+nop
+beq $0, $0, label_2
+nop
+beq $at, $v0, label_2
+nop
+ori $v0, $0, 0xc
+nop
+nop
+nop
+jal label_3
+sw $at, 0x0($v0)
+beq $0, $0, label_2
+
+add $at, $at, $v0
+label_3: add $at, $at, $v0
+add $at, $at, $v0
+add $at, $at, $v0
+sw $ra, 0x0($v0)
+lw $at, 0x0($v0)
+nop
+nop
+nop
+jr $at
+sw $ra, 0x0($v0)
+beq $0, $0, label_4
+nop
